@@ -1,0 +1,48 @@
+@import "../colors";
+
+:root {
+  --codoodle-scrollBar-size: 20px;
+  --codoodle-scrollBar-trackColor: #{$neutralLighterAlt};
+  --codoodle-scrollBar-thumbColor: #{$neutralQuaternaryAlt};
+}
+
+.scrollBar {
+  * {
+    box-sizing: border-box;
+    user-select: none;
+  }
+  .scrollBarTrack {
+    background-color: var(--codoodle-scrollBar-trackColor);
+  }
+  .scrollBarThumb {
+    background-color: var(--codoodle-scrollBar-thumbColor);
+    display: none;
+  }
+
+  &.scrollBarVertical {
+    width: var(--codoodle-scrollBar-size);
+    .scrollBarTrack {
+      height: 100%;
+      width: 100%;
+    }
+    .scrollBarThumb {
+      width: var(--codoodle-scrollBar-size);
+    }
+  }
+  &.scrollBarHorizontal {
+    height: var(--codoodle-scrollBar-size);
+    .scrollBarTrack {
+      height: 100%;
+      width: 100%;
+    }
+    .scrollBarThumb {
+      height: var(--codoodle-scrollBar-size);
+    }
+  }
+  &.scrollBarScrollable {
+    .scrollBarThumb {
+      background-color: var(--codoodle-scrollBar-thumbColor);
+      display: block;
+    }
+  }
+}

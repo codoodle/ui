@@ -1,0 +1,44 @@
+/**
+ * Colors from "Fluent UI Theme Designer"
+ */
+:root {
+  --codoodle-scrollBar-size: 20px;
+  --codoodle-scrollBar-trackColor: #faf9f8;
+  --codoodle-scrollBar-thumbColor: #e1dfdd;
+}
+
+.__a7UsX5bAGWY- * {
+  box-sizing: border-box;
+  user-select: none;
+}
+.__a7UsX5bAGWY- .__h-kyhFkWw-M- {
+  background-color: var(--codoodle-scrollBar-trackColor);
+}
+.__a7UsX5bAGWY- .__0BS-z4K2HMk- {
+  background-color: var(--codoodle-scrollBar-thumbColor);
+  display: none;
+}
+.__a7UsX5bAGWY-.__owGLQAJDu3Y- {
+  width: var(--codoodle-scrollBar-size);
+}
+.__a7UsX5bAGWY-.__owGLQAJDu3Y- .__h-kyhFkWw-M- {
+  height: 100%;
+  width: 100%;
+}
+.__a7UsX5bAGWY-.__owGLQAJDu3Y- .__0BS-z4K2HMk- {
+  width: var(--codoodle-scrollBar-size);
+}
+.__a7UsX5bAGWY-.__Jgg9yXJ5jXs- {
+  height: var(--codoodle-scrollBar-size);
+}
+.__a7UsX5bAGWY-.__Jgg9yXJ5jXs- .__h-kyhFkWw-M- {
+  height: 100%;
+  width: 100%;
+}
+.__a7UsX5bAGWY-.__Jgg9yXJ5jXs- .__0BS-z4K2HMk- {
+  height: var(--codoodle-scrollBar-size);
+}
+.__a7UsX5bAGWY-.__OCivjqzYzcA- .__0BS-z4K2HMk- {
+  background-color: var(--codoodle-scrollBar-thumbColor);
+  display: block;
+}

@@ -27,7 +27,7 @@ function buildPlugin(file) {
   }
 }
 
-const files = []
+const files = ["scrollBar"]
 fs.writeFileSync(
   path.resolve("src", "index.ts"),
   `${files.map((file) => `import ${file} from "./${file}"`).join("\n")}

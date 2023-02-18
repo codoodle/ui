@@ -49,7 +49,7 @@ const babelOptions = {
   extensions: [".js", ".jsx", ".es6", ".es", ".mjs", ".ts", ".tsx"],
 }
 
-const files = []
+const files = ["scrollBar"]
 export default defineConfig([
   {
     input: `src/index.ts`,

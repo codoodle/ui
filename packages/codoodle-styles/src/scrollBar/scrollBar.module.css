@@ -1,0 +1,44 @@
+/**
+ * Colors from "Fluent UI Theme Designer"
+ */
+:root {
+  --codoodle-scrollBar-size: 20px;
+  --codoodle-scrollBar-trackColor: #faf9f8;
+  --codoodle-scrollBar-thumbColor: #e1dfdd;
+}
+
+.scrollBar * {
+  box-sizing: border-box;
+  user-select: none;
+}
+.scrollBar .scrollBarTrack {
+  background-color: var(--codoodle-scrollBar-trackColor);
+}
+.scrollBar .scrollBarThumb {
+  background-color: var(--codoodle-scrollBar-thumbColor);
+  display: none;
+}
+.scrollBar.scrollBarVertical {
+  width: var(--codoodle-scrollBar-size);
+}
+.scrollBar.scrollBarVertical .scrollBarTrack {
+  height: 100%;
+  width: 100%;
+}
+.scrollBar.scrollBarVertical .scrollBarThumb {
+  width: var(--codoodle-scrollBar-size);
+}
+.scrollBar.scrollBarHorizontal {
+  height: var(--codoodle-scrollBar-size);
+}
+.scrollBar.scrollBarHorizontal .scrollBarTrack {
+  height: 100%;
+  width: 100%;
+}
+.scrollBar.scrollBarHorizontal .scrollBarThumb {
+  height: var(--codoodle-scrollBar-size);
+}
+.scrollBar.scrollBarScrollable .scrollBarThumb {
+  background-color: var(--codoodle-scrollBar-thumbColor);
+  display: block;
+}
