@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "emitDeclarationOnly": true,
+    "rootDir": "./src",
+    "checkJs": false
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["**/__tests__/*", "./src/preview.ts"]
+}

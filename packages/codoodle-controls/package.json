@@ -1,0 +1,37 @@
+{
+  "name": "@codoodle/controls",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codoodle/ui.git",
+    "directory": "packages/codoodle-controls"
+  },
+  "author": "Yeongseok Yoon",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "tsc --build tsconfig.build.json --clean",
+    "build": "yarn clean && rollup -c && tsc --build tsconfig.build.json",
+    "preview": "rollup -c --watch"
+  },
+  "dependencies": {
+    "core-js": "^3.28.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@codoodle/styles": "workspace:^",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-html": "^1.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/node": "^18.14.0",
+    "rollup": "^3.16.0",
+    "rollup-plugin-import-css": "^3.1.0"
+  }
+}

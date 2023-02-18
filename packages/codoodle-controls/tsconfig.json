@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./dist",
+    "paths": {
+      "@codoodle/styles": ["../codoodle-styles/src/index.ts"],
+      "@codoodle/styles/dist/*": ["../codoodle-styles/src/*"]
+    }
+  },
+  "references": [
+    {
+      "path": "../codoodle-styles"
+    }
+  ]
+}

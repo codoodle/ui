@@ -1,0 +1,35 @@
+{
+  "name": "@codoodle/styles",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codoodle/ui.git",
+    "directory": "packages/codoodle-styles"
+  },
+  "author": "Yeongseok Yoon",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "modules": "rollup -c rollup.config.modules.js",
+    "clean": "tsc --build tsconfig.build.json --clean",
+    "build": "yarn clean && yarn modules && rollup -c && tsc --build tsconfig.build.json"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/node": "^18.14.0",
+    "postcss": "^8.4.21",
+    "postcss-modules": "^6.0.0",
+    "rollup": "^3.16.0",
+    "rollup-plugin-scss": "^4.0.0",
+    "sass": "^1.58.2"
+  }
+}
