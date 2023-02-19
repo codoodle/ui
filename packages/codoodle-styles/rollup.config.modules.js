@@ -32,7 +32,8 @@ fs.writeFileSync(
   path.resolve("src", "index.ts"),
   `${files.map((file) => `import ${file} from "./${file}"`).join("\n")}
 
-export { ${files.join(", ")} }`
+export { ${files.join(", ")} }
+`
 )
 for (const file of files) {
   if (!fs.existsSync(file)) {

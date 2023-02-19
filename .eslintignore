@@ -1,0 +1,4 @@
+/.eslintrc.cjs
+/packages/*/dist
+/packages/*/rollup.config.js
+/packages/*/rollup.config.*.js

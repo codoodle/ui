@@ -2333,6 +2333,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@codoodle/styles", "workspace:packages/codoodle-styles"],\
             ["@rollup/plugin-babel", "virtual:66516710c0de0d1dceb402f28c205eff48839c135ee85dfd588e3d91388af1418a46fe2928b365cce8683c86990686afe6a6f36c214f81d8a131538a2bf15874#npm:6.0.3"],\
             ["@rollup/plugin-commonjs", "virtual:66516710c0de0d1dceb402f28c205eff48839c135ee85dfd588e3d91388af1418a46fe2928b365cce8683c86990686afe6a6f36c214f81d8a131538a2bf15874#npm:24.0.1"],\
+            ["@rollup/plugin-eslint", "virtual:66516710c0de0d1dceb402f28c205eff48839c135ee85dfd588e3d91388af1418a46fe2928b365cce8683c86990686afe6a6f36c214f81d8a131538a2bf15874#npm:9.0.3"],\
             ["@rollup/plugin-html", "virtual:8339b87aa532e461bf4c694a8324c65d71bbf74deb7fc58a39f868621253abc85902b9b4e7a205b7d5b88ff1af4dec3eb03aeeaa6f6f24bff92568775a2bdeed#npm:1.0.2"],\
             ["@rollup/plugin-node-resolve", "virtual:66516710c0de0d1dceb402f28c205eff48839c135ee85dfd588e3d91388af1418a46fe2928b365cce8683c86990686afe6a6f36c214f81d8a131538a2bf15874#npm:15.0.1"],\
             ["@types/node", "npm:18.14.0"],\
@@ -2351,6 +2352,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/core", "npm:7.20.12"],\
             ["@rollup/plugin-babel", "virtual:66516710c0de0d1dceb402f28c205eff48839c135ee85dfd588e3d91388af1418a46fe2928b365cce8683c86990686afe6a6f36c214f81d8a131538a2bf15874#npm:6.0.3"],\
             ["@rollup/plugin-commonjs", "virtual:66516710c0de0d1dceb402f28c205eff48839c135ee85dfd588e3d91388af1418a46fe2928b365cce8683c86990686afe6a6f36c214f81d8a131538a2bf15874#npm:24.0.1"],\
+            ["@rollup/plugin-eslint", "virtual:66516710c0de0d1dceb402f28c205eff48839c135ee85dfd588e3d91388af1418a46fe2928b365cce8683c86990686afe6a6f36c214f81d8a131538a2bf15874#npm:9.0.3"],\
             ["@rollup/plugin-node-resolve", "virtual:66516710c0de0d1dceb402f28c205eff48839c135ee85dfd588e3d91388af1418a46fe2928b365cce8683c86990686afe6a6f36c214f81d8a131538a2bf15874#npm:15.0.1"],\
             ["@types/node", "npm:18.14.0"],\
             ["postcss", "npm:8.4.21"],\
@@ -2598,6 +2600,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["glob", "npm:8.1.0"],\
             ["is-reference", "npm:1.2.1"],\
             ["magic-string", "npm:0.27.0"],\
+            ["rollup", "npm:3.16.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/rollup",\
+            "rollup"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@rollup/plugin-eslint", [\
+        ["npm:9.0.3", {\
+          "packageLocation": "./.yarn/cache/@rollup-plugin-eslint-npm-9.0.3-4c72612456-609abead94.zip/node_modules/@rollup/plugin-eslint/",\
+          "packageDependencies": [\
+            ["@rollup/plugin-eslint", "npm:9.0.3"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:66516710c0de0d1dceb402f28c205eff48839c135ee85dfd588e3d91388af1418a46fe2928b365cce8683c86990686afe6a6f36c214f81d8a131538a2bf15874#npm:9.0.3", {\
+          "packageLocation": "./.yarn/__virtual__/@rollup-plugin-eslint-virtual-f22fefb6b4/0/cache/@rollup-plugin-eslint-npm-9.0.3-4c72612456-609abead94.zip/node_modules/@rollup/plugin-eslint/",\
+          "packageDependencies": [\
+            ["@rollup/plugin-eslint", "virtual:66516710c0de0d1dceb402f28c205eff48839c135ee85dfd588e3d91388af1418a46fe2928b365cce8683c86990686afe6a6f36c214f81d8a131538a2bf15874#npm:9.0.3"],\
+            ["@rollup/pluginutils", "virtual:d70af50e82191bf1cf1b47dc88de81b5c09255ecd162ac37c82afb90a79449d38cd9d151e5905ee5e605b0fff58779f131ed9f9853299bb7de490afbaf262b97#npm:5.0.2"],\
+            ["@types/rollup", null],\
+            ["eslint", "npm:8.34.0"],\
             ["rollup", "npm:3.16.0"]\
           ],\
           "packagePeers": [\

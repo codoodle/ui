@@ -1333,6 +1333,7 @@ __metadata:
     "@codoodle/styles": "workspace:^"
     "@rollup/plugin-babel": ^6.0.3
     "@rollup/plugin-commonjs": ^24.0.1
+    "@rollup/plugin-eslint": ^9.0.3
     "@rollup/plugin-html": ^1.0.2
     "@rollup/plugin-node-resolve": ^15.0.1
     "@types/node": ^18.14.0
@@ -1349,6 +1350,7 @@ __metadata:
     "@babel/core": ^7.20.12
     "@rollup/plugin-babel": ^6.0.3
     "@rollup/plugin-commonjs": ^24.0.1
+    "@rollup/plugin-eslint": ^9.0.3
     "@rollup/plugin-node-resolve": ^15.0.1
     "@types/node": ^18.14.0
     postcss: ^8.4.21
@@ -1560,6 +1562,21 @@ __metadata:
     rollup:
       optional: true
   checksum: ff5b09f5c350640fe6836fcc97bf5c5612bf78b26eaaad01bf1aee955f0b136135d1a8950a02f680779aec1f16f2c6b6cf89d6080e84ed09be62737abb6b3a5f
+  languageName: node
+  linkType: hard
+
+"@rollup/plugin-eslint@npm:^9.0.3":
+  version: 9.0.3
+  resolution: "@rollup/plugin-eslint@npm:9.0.3"
+  dependencies:
+    "@rollup/pluginutils": ^5.0.1
+    eslint: ^8.24.0
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0||^3.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: 609abead94bd82dd6b207ffff7b7b2edca906d593268cde1fe171ff8328898734ccb9b449965fee3684e62c581b770eae46c72965161d41ff9826e88ca113191
   languageName: node
   linkType: hard
 
@@ -2391,7 +2408,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.34.0":
+"eslint@npm:^8.24.0, eslint@npm:^8.34.0":
   version: 8.34.0
   resolution: "eslint@npm:8.34.0"
   dependencies:

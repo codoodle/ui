@@ -1,5 +1,6 @@
 import fs from "fs"
 import { defineConfig } from "rollup"
+import eslint from "@rollup/plugin-eslint"
 import commonjs from "@rollup/plugin-commonjs"
 import resolve from "@rollup/plugin-node-resolve"
 import babel from "@rollup/plugin-babel"
@@ -65,6 +66,9 @@ export default defineConfig([
         },
         external: [/core-js\/.+/],
         plugins: [
+          eslint({
+            exclude: "**/packages/*/dist/**",
+          }),
           commonjs(),
           resolve(resolveOptions),
           babel(babelOptions),
