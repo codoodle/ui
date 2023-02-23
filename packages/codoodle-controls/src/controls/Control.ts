@@ -27,9 +27,7 @@ abstract class Control {
 
   #el: HTMLElement
   #resizeObserver: ResizeObserver
-  #borderBoxSize: ISize = { width: 0, height: 0 }
-  #contentBoxSize: ISize = { width: 0, height: 0 }
-  #usableSize: ISize = { width: 0, height: 0 }
+  #availableSize: ISize = { width: 0, height: 0 }
 
   get el(): HTMLElement {
     return this.#el
@@ -39,16 +37,8 @@ abstract class Control {
     return this.__initialized
   }
 
-  get borderBoxSize(): ISize {
-    return this.#borderBoxSize
-  }
-
-  get contentBoxSize(): ISize {
-    return this.#contentBoxSize
-  }
-
-  get usableSize(): ISize {
-    return this.#usableSize
+  get availableSize(): ISize {
+    return this.#availableSize
   }
 
   constructor(el?: HTMLElement, resizeObserver?: ResizeObserver) {
@@ -57,19 +47,12 @@ abstract class Control {
       new ResizeObserver((entries) => {
         for (const entry of entries) {
           if (entry.target === this.#el) {
-            this.#contentBoxSize = {
+            this.measure({
               width:
                 entry.contentBoxSize[0]?.inlineSize ?? entry.contentRect.width,
               height:
                 entry.contentBoxSize[0]?.blockSize ?? entry.contentRect.height,
-            }
-            this.#borderBoxSize = {
-              width:
-                entry.borderBoxSize[0]?.inlineSize ?? entry.contentRect.width,
-              height:
-                entry.borderBoxSize[0]?.blockSize ?? entry.contentRect.height,
-            }
-            this.measure(this.#contentBoxSize)
+            })
           }
         }
       })
@@ -90,12 +73,12 @@ abstract class Control {
   }
 
   measure(availableSize: ISize): void {
-    this.arrange(availableSize)
+    const previousSize = this.#availableSize
+    this.#availableSize = availableSize
+    this.arrange(availableSize, previousSize)
   }
 
-  arrange({ width, height }: ISize): void {
-    this.#usableSize = { width, height }
-  }
+  abstract arrange(size: ISize, previousSize?: ISize): void
 
   addEventListener<K extends keyof ControlEventKeyMap>(
     type: K,
