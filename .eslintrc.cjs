@@ -13,4 +13,12 @@ module.exports = {
     project: "./packages/**/tsconfig.eslint.json",
   },
   plugins: ["@typescript-eslint"],
+  rules: {
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        args: "none",
+      },
+    ],
+  },
 }
