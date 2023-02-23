@@ -90,7 +90,7 @@ class ScrollBar extends Control {
   }
   set minimum(value: number) {
     this.#minimum = value
-    this.arrange(this.contentBoxSize)
+    this.arrange(this.availableSize)
   }
 
   get maximum(): number {
@@ -98,7 +98,7 @@ class ScrollBar extends Control {
   }
   set maximum(value: number) {
     this.#maximum = value
-    this.arrange(this.contentBoxSize)
+    this.arrange(this.availableSize)
   }
 
   constructor(
@@ -131,9 +131,7 @@ class ScrollBar extends Control {
     this.#valueInitial = initialValue
   }
 
-  override arrange(size: ISize): void {
-    super.arrange(size)
-
+  arrange(size: ISize, _previousSize?: ISize): void {
     const maximum = this.#maximum - this.#minimum
     if (maximum <= 0) {
       this.el.classList.remove(styles.scrollBarScrollable)
@@ -141,30 +139,22 @@ class ScrollBar extends Control {
       this.el.classList.add(styles.scrollBarScrollable)
     }
     if (this.isHorizontal) {
-      if (maximum > this.usableSize.width - MINIMUM_THUMB_SIZE) {
-        this.#maximumIn = Math.max(
-          0,
-          this.usableSize.width - MINIMUM_THUMB_SIZE
-        )
+      if (maximum > size.width - MINIMUM_THUMB_SIZE) {
+        this.#maximumIn = Math.max(0, size.width - MINIMUM_THUMB_SIZE)
       } else {
         this.#maximumIn = maximum
       }
-      this.#elThumb.style.height = `${this.usableSize.height}px`
-      this.#elThumb.style.width = `${this.usableSize.width - this.#maximumIn}px`
+      this.#elThumb.style.height = `${size.height}px`
+      this.#elThumb.style.width = `${size.width - this.#maximumIn}px`
     } else {
-      if (maximum > this.usableSize.height - MINIMUM_THUMB_SIZE) {
-        this.#maximumIn = Math.max(
-          0,
-          this.usableSize.height - MINIMUM_THUMB_SIZE
-        )
+      if (maximum > size.height - MINIMUM_THUMB_SIZE) {
+        this.#maximumIn = Math.max(0, size.height - MINIMUM_THUMB_SIZE)
       } else {
         this.#maximumIn = maximum
       }
 
-      this.#elThumb.style.height = `${
-        this.usableSize.height - this.#maximumIn
-      }px`
-      this.#elThumb.style.width = `${this.usableSize.width}px`
+      this.#elThumb.style.height = `${size.height - this.#maximumIn}px`
+      this.#elThumb.style.width = `${size.width}px`
     }
     if (this.#valueInitial) {
       this.value = this.#valueInitial
@@ -221,7 +211,7 @@ class ScrollBar extends Control {
           Math.min(
             this.#maximumIn,
             e.offsetX -
-              Math.round((this.usableSize.width - this.#maximumIn) / 2)
+              Math.round((this.availableSize.width - this.#maximumIn) / 2)
           )
         )
       } else {
@@ -230,7 +220,7 @@ class ScrollBar extends Control {
           Math.min(
             this.#maximumIn,
             e.offsetY -
-              Math.round((this.usableSize.height - this.#maximumIn) / 2)
+              Math.round((this.availableSize.height - this.#maximumIn) / 2)
           )
         )
       }
