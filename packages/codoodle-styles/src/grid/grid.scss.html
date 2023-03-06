@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>neaio.ui.controls.Grid</title>
+    <link href="./grid.module.css" rel="stylesheet" />
+  </head>
+  <body style="font-size: 12px">
+    <h2>Normal</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Scrollable Vertical</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridScrollableVertical">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Scrollable Horizontal</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridScrollableHorizontal">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Scrollable Vertical and Horizontal</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridScrollableVertical gridScrollableHorizontal">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Freezable Columns Normal</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridFreezableColumns">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+        </div>
+        <div class="gridHead gridFrozenColumns" style="height: 30px; width: 200px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody gridFrozenColumns">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+        </div>
+        <div class="gridBody gridFrozenRows" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridBody gridFrozenColumns gridFrozenRows">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Freezable Columns Scrollable Vertical</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridFreezableColumns gridScrollableVertical">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridHead gridFrozenColumns" style="height: 30px; width: 200px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody gridFrozenColumns">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridBody gridFrozenRows" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridBody gridFrozenColumns gridFrozenRows">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Freezable Columns Scrollable Horizontal</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridFreezableColumns gridScrollableHorizontal">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 60px">body</div>
+        </div>
+        <div class="gridHead gridFrozenColumns" style="height: 30px; width: 200px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody gridFrozenColumns">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+        </div>
+        <div class="gridBody gridFrozenRows" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridBody gridFrozenColumns gridFrozenRows">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Freezable Columns Scrollable Vertical and Horizontal</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridFreezableColumns gridScrollableVertical gridScrollableHorizontal">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridHead gridFrozenColumns" style="height: 30px; width: 200px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody gridFrozenColumns">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridBody gridFrozenRows" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridBody gridFrozenColumns gridFrozenRows">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Freezable Rows Normal</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridFreezableRows">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+        </div>
+        <div class="gridHead gridFrozenColumns" style="height: 30px; width: 200px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody gridFrozenColumns">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+        </div>
+        <div class="gridBody gridFrozenRows" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridBody gridFrozenColumns gridFrozenRows">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Freezable Rows Scrollable Vertical</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridFreezableRows gridScrollableVertical">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridHead gridFrozenColumns" style="height: 30px; width: 200px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody gridFrozenColumns">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridBody gridFrozenRows" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridBody gridFrozenColumns gridFrozenRows">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Freezable Rows Scrollable Horizontal</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridFreezableRows gridScrollableHorizontal">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 60px">body</div>
+        </div>
+        <div class="gridHead gridFrozenColumns" style="height: 30px; width: 200px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody gridFrozenColumns">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+        </div>
+        <div class="gridBody gridFrozenRows" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridBody gridFrozenColumns gridFrozenRows">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Freezable Rows Scrollable Vertical and Horizontal</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridFreezableRows gridScrollableVertical gridScrollableHorizontal">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridHead gridFrozenColumns" style="height: 30px; width: 200px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody gridFrozenColumns">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridBody gridFrozenRows" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridBody gridFrozenColumns gridFrozenRows">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Freezable Columns and Rows Normal</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridFreezableColumns gridFreezableRows">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+        </div>
+        <div class="gridHead gridFrozenColumns" style="height: 30px; width: 200px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody gridFrozenColumns">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+        </div>
+        <div class="gridBody gridFrozenRows" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridBody gridFrozenColumns gridFrozenRows">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Freezable Columns and Rows Scrollable Vertical</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridFreezableColumns gridFreezableRows gridScrollableVertical">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridHead gridFrozenColumns" style="height: 30px; width: 200px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody gridFrozenColumns">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridBody gridFrozenRows" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridBody gridFrozenColumns gridFrozenRows">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Freezable Columns and Rows Scrollable Horizontal</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridFreezableColumns gridFreezableRows gridScrollableHorizontal">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 60px">body</div>
+        </div>
+        <div class="gridHead gridFrozenColumns" style="height: 30px; width: 200px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody gridFrozenColumns">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+        </div>
+        <div class="gridBody gridFrozenRows" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridBody gridFrozenColumns gridFrozenRows">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+
+    <h2>Freezable Columns and Rows Scrollable Vertical and Horizontal</h2>
+    <div class="grid" style="height: 300px">
+      <div class="gridWrap gridFreezableColumns gridFreezableRows gridScrollableVertical gridScrollableHorizontal">
+        <div class="gridHead" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridHead gridFrozenColumns" style="height: 30px; width: 200px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">head</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">head</div>
+        </div>
+        <div class="gridBody gridFrozenColumns">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 30px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 30px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 60px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 60px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 90px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 90px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 120px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 120px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 150px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 150px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 180px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 180px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 210px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 210px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 240px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 240px">body</div>
+
+          <div class="gridCell" style="left: 0; width: 100px; top: 270px">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 270px">body</div>
+        </div>
+        <div class="gridBody gridFrozenRows" style="height: 30px">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 200px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 300px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 400px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 500px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 600px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 700px; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 800px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridBody gridFrozenColumns gridFrozenRows">
+          <div class="gridCell" style="left: 0; width: 100px; top: 0">body</div>
+          <div class="gridCell" style="left: 100px; width: 100px; top: 0">body</div>
+        </div>
+        <div class="gridScrollBarHorizontal"></div>
+        <div class="gridScrollBarVertical"></div>
+        <div class="gridCNE"></div>
+        <div class="gridCSE"></div>
+      </div>
+    </div>
+  </body>
+</html>

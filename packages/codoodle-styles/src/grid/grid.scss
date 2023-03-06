@@ -1,0 +1,199 @@
+@import "../colors";
+
+:root {
+  --codoodle-grid-backgroundColor: #{$white};
+  --codoodle-grid-border: 1px solid #{$neutralQuaternaryAlt};
+  --codoodle-grid-headRowHeight: 30px;
+  --codoodle-grid-headBackgroundColor: #{$neutralLighter};
+  --codoodle-grid-bodyRowHeight: 30px;
+  --codoodle-grid-bodyBackgroundColor: #{$white};
+  --codoodle-grid-scrollBar-backgroundColor: #{$neutralLighterAlt};
+}
+
+.grid {
+  background-color: var(--codoodle-grid-backgroundColor);
+  border: var(--codoodle-grid-border);
+
+  * {
+    box-sizing: border-box;
+  }
+  .gridWrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    width: 100%;
+    .gridCell {
+      position: absolute;
+      border: var(--codoodle-grid-border);
+      border-left: none;
+      border-top: none;
+      display: flex;
+      align-items: center;
+      padding: 0 0.5em;
+      .gridCellContent {
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .gridHead {
+      background-color: var(--codoodle-grid-headBackgroundColor);
+      border-bottom: var(--codoodle-grid-border);
+      grid-column: 1/2;
+      grid-row: 1/2;
+      overflow: hidden;
+      position: relative;
+      .gridCell {
+        height: var(--codoodle-grid-headRowHeight);
+      }
+
+      &.gridFrozenColumns {
+        display: none;
+        grid-column: 1/2;
+        grid-row: 1/2;
+
+        background-color: yellow;
+      }
+    }
+    .gridBody {
+      background-color: var(--codoodle-grid-bodyBackgroundColor);
+      grid-column: 1/2;
+      grid-row: 2/3;
+      overflow: hidden;
+      position: relative;
+      .gridCell {
+        height: var(--codoodle-grid-bodyRowHeight);
+      }
+
+      &.gridFrozenColumns {
+        display: none;
+        grid-column: 1/2;
+        grid-row: 2/3;
+
+        background-color: yellow;
+      }
+      &.gridFrozenRows {
+        display: none;
+        grid-column: 1/2;
+        grid-row: 2/3;
+
+        background-color: yellow;
+      }
+
+      &.gridFrozenColumns.gridFrozenRows {
+        display: none;
+        grid-column: 1/2;
+        grid-row: 2/3;
+
+        background-color: red;
+      }
+    }
+    .gridScrollBarHorizontal {
+      background-color: var(--codoodle-grid-scrollBar-backgroundColor);
+      display: none;
+      grid-column: 1/2;
+      grid-row: 3/4;
+    }
+    .gridScrollBarVertical {
+      background-color: var(--codoodle-grid-scrollBar-backgroundColor);
+      display: none;
+      grid-column: 2/3;
+      grid-row: 2/3;
+    }
+    .gridCNE {
+      background-color: var(--codoodle-grid-headBackgroundColor);
+      border-bottom: var(--codoodle-grid-border);
+      display: none;
+      grid-column: 2/3;
+      grid-row: 1/2;
+    }
+    .gridCSE {
+      background-color: var(--codoodle-grid-scrollBar-backgroundColor);
+      display: none;
+      grid-column: 2/3;
+      grid-row: 3/4;
+    }
+
+    &.gridScrollableVertical {
+      grid-template-columns: 1fr 20px;
+      .gridScrollBarVertical {
+        display: block;
+      }
+      .gridCNE {
+        display: block;
+      }
+    }
+    &.gridScrollableHorizontal {
+      grid-template-rows: auto 1fr 20px;
+      .gridScrollBarHorizontal {
+        display: block;
+      }
+    }
+    &.gridScrollableVertical.gridScrollableHorizontal {
+      .gridCSE {
+        display: block;
+      }
+    }
+  }
+
+  .gridWrap.gridFreezableColumns {
+    grid-template-columns: auto 1fr;
+    .gridHead:not(.gridFrozenColumns) {
+      grid-column: 1/3;
+    }
+    .gridBody:not(.gridFrozenColumns) {
+      grid-column: 1/3;
+    }
+    .gridScrollBarHorizontal {
+      grid-column: 1/3;
+    }
+    .gridScrollBarVertical {
+      grid-column: 3/4;
+    }
+    .gridCNE {
+      grid-column: 3/4;
+    }
+    .gridCSE {
+      grid-column: 3/4;
+    }
+    .gridHead.gridFrozenColumns {
+      display: block;
+    }
+    .gridBody.gridFrozenColumns:not(.gridFrozenRows) {
+      display: block;
+    }
+
+    &.gridScrollableVertical {
+      grid-template-columns: auto 1fr 20px;
+    }
+  }
+  .gridWrap.gridFreezableRows {
+    grid-template-rows: auto auto 1fr;
+    .gridBody:not(.gridFrozenRows) {
+      grid-row: 2/4;
+    }
+    .gridScrollBarHorizontal {
+      grid-row: 4/5;
+    }
+    .gridScrollBarVertical {
+      grid-row: 2/4;
+    }
+    .gridCSE {
+      grid-row: 4/5;
+    }
+    .gridBody.gridFrozenRows:not(.gridFrozenColumns) {
+      display: block;
+    }
+
+    &.gridScrollableHorizontal {
+      grid-template-rows: max-content auto 1fr 20px;
+    }
+  }
+  .gridWrap.gridFreezableColumns.gridFreezableRows {
+    .gridBody.gridFrozenColumns.gridFrozenRows {
+      display: block;
+    }
+  }
+}
