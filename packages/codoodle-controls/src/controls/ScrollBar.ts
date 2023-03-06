@@ -1,6 +1,7 @@
 import "@codoodle/styles/dist/scrollBar/scrollBar.css"
-import Control, { ControlEventKeyMap, Initialization, ISize } from "./Control"
 import styles from "@codoodle/styles/dist/scrollBar"
+import type ISize from "./ISize"
+import Control, { ControlEventKeyMap, Initialization } from "./Control"
 
 const MINIMUM_THUMB_SIZE = 20
 

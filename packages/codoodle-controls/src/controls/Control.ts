@@ -1,7 +1,4 @@
-export interface ISize {
-  width: number
-  height: number
-}
+import type ISize from "./ISize"
 
 export interface ControlEventKeyMap {
   initialized: [undefined, CustomEvent<undefined>]
