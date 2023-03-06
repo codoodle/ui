@@ -91,7 +91,6 @@ class ScrollBar extends Control {
   }
   set minimum(value: number) {
     this.#minimum = value
-    this.arrange(this.availableSize)
   }
 
   get maximum(): number {
@@ -99,7 +98,6 @@ class ScrollBar extends Control {
   }
   set maximum(value: number) {
     this.#maximum = value
-    this.arrange(this.availableSize)
   }
 
   constructor(
@@ -132,7 +130,7 @@ class ScrollBar extends Control {
     this.#valueInitial = initialValue
   }
 
-  arrange(size: ISize, _previousSize?: ISize): void {
+  arrange(size: ISize, previousSize?: ISize): void {
     const maximum = this.#maximum - this.#minimum
     if (maximum <= 0) {
       this.el.classList.remove(styles.scrollBarScrollable)
@@ -166,9 +164,10 @@ class ScrollBar extends Control {
     if (this.#valueIn > this.#maximumIn) {
       this.#valueIn = this.#maximumIn
       this.#value = this.#toValue()
-    }
-    if (this.#valueIn < this.#minimumIn) {
+    } else if (this.#valueIn < this.#minimumIn) {
       this.#valueIn = this.#minimumIn
+      this.#value = this.#toValue()
+    } else if (previousSize) {
       this.#value = this.#toValue()
     }
     if (valuePrev !== this.#value) {
