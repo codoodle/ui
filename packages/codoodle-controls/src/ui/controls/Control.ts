@@ -1,4 +1,4 @@
-import type ISize from "./ISize"
+import type Size from "../Size"
 
 export interface ControlEventKeyMap {
   initialized: [undefined, CustomEvent<undefined>]
@@ -24,7 +24,7 @@ abstract class Control {
 
   #el: HTMLElement
   #resizeObserver: ResizeObserver
-  #availableSize: ISize = { width: 0, height: 0 }
+  #availableSize: Size = { width: 0, height: 0 }
 
   get el(): HTMLElement {
     return this.#el
@@ -34,7 +34,7 @@ abstract class Control {
     return this.__initialized
   }
 
-  get availableSize(): ISize {
+  get availableSize(): Size {
     return this.#availableSize
   }
 
@@ -69,13 +69,13 @@ abstract class Control {
     }
   }
 
-  measure(availableSize: ISize): void {
+  measure(availableSize: Size): void {
     const previousSize = this.#availableSize
     this.#availableSize = availableSize
     this.arrange(availableSize, previousSize)
   }
 
-  abstract arrange(size: ISize, previousSize?: ISize): void
+  abstract arrange(size: Size, previousSize?: Size): void
 
   addEventListener<K extends keyof ControlEventKeyMap>(
     type: K,

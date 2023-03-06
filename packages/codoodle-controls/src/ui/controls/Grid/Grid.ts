@@ -1,9 +1,9 @@
 import "@codoodle/styles/dist/grid/grid.css"
 import styles from "@codoodle/styles/dist/grid"
-import { toOptimizedFunction } from "../../toOptimizedFunction"
-import type IRect from "../IRect"
-import type ISize from "../ISize"
-import Control from "../Control"
+import type Rect from "../../Rect"
+import type Size from "../../Size"
+import toOptimizedFunction from "../../toOptimizedFunction"
+import Control, { Initialization } from "../Control"
 import ScrollBar, { ScrollOrientation } from "../ScrollBar"
 import type GridColumn from "./GridColumn"
 import type GridRow from "./GridRow"
@@ -59,7 +59,7 @@ class Grid<T extends GridRow = GridRow> extends Control {
   #elCSE
   #scrollBarHorizontal
   #scrollBarVertical
-  #render = toOptimizedFunction(this, this.#handleRender)
+  #handleRender = toOptimizedFunction(this, this.#render)
   #columns: InternalGridColumn[] = []
   #columnsOrigin: GridColumn[] = []
   #columnsWidth = 0
@@ -205,15 +205,19 @@ class Grid<T extends GridRow = GridRow> extends Control {
     this.#elWrap.append(this.#elCSE)
   }
 
+  @Initialization
   override initialize(): void {
     super.initialize()
     this.#scrollBarHorizontal.initialize()
-    this.#scrollBarHorizontal.addEventListener("valueChanged", this.#render)
+    this.#scrollBarHorizontal.addEventListener(
+      "valueChanged",
+      this.#handleRender
+    )
     this.#scrollBarVertical.initialize()
-    this.#scrollBarVertical.addEventListener("valueChanged", this.#render)
+    this.#scrollBarVertical.addEventListener("valueChanged", this.#handleRender)
   }
 
-  arrange(size: ISize, previousSize?: ISize): void {
+  arrange(size: Size, previousSize?: Size): void {
     if (
       size.height !== previousSize?.height ||
       size.width !== previousSize?.width
@@ -318,10 +322,10 @@ class Grid<T extends GridRow = GridRow> extends Control {
         this.#elWrap.classList.remove(styles.gridScrollableVertical)
       }
     }
-    this.#render()
+    this.#handleRender()
   }
 
-  #handleRender() {
+  #render() {
     const bounds = {
       left: this.#scrollBarHorizontal.value,
       top: this.#scrollBarVertical.value,
@@ -377,7 +381,7 @@ class Grid<T extends GridRow = GridRow> extends Control {
       .join(" ")
   }
 
-  #getIndexBounds({ left, top, width, height }: IRect): GridRenderingBounds {
+  #getIndexBounds({ left, top, width, height }: Rect): GridRenderingBounds {
     const right = left + width
     const bottom = top + height
     const isPoint = width === 0 && height === 0

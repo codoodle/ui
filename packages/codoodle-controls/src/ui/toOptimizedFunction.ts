@@ -4,7 +4,7 @@
  * @param thisArgs 함수를 호출하는데 제공될 this의 값입니다.
  * @param func 실행할 함수입니다.
  */
-export function toOptimizedFunction<T extends Function>(
+function toOptimizedFunction<T extends Function>(
   thisArgs: unknown,
   func: T
 ): T {
@@ -19,3 +19,5 @@ export function toOptimizedFunction<T extends Function>(
     }
   }) as unknown as T
 }
+
+export default toOptimizedFunction

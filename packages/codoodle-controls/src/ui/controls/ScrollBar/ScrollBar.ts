@@ -1,27 +1,23 @@
 import "@codoodle/styles/dist/scrollBar/scrollBar.css"
 import styles from "@codoodle/styles/dist/scrollBar"
-import type ISize from "./ISize"
-import Control, { ControlEventKeyMap, Initialization } from "./Control"
+import type Size from "../../Size"
+import Control, { ControlEventKeyMap, Initialization } from "../Control"
+import ScrollOrientation from "./ScrollOrientation"
 
 const MINIMUM_THUMB_SIZE = 20
 
-export interface ScrollBarEventKeyMap extends ControlEventKeyMap {
+interface ScrollBarEventKeyMap extends ControlEventKeyMap {
   valueChanged: [ValueChangedDetail, CustomEvent<ValueChangedDetail>]
-  scroll: [ValueChangedDetail, CustomEvent<ValueChangedDetail>]
+  scroll: [ScrollDetail, CustomEvent<ScrollDetail>]
 }
 
-export const enum ScrollOrientation {
-  Horizontal,
-  Vertical,
-}
-
-export interface ValueChangedDetail {
+interface ValueChangedDetail {
   newValue: number
   oldValue: number
   orientation: ScrollOrientation
 }
 
-export type ScrollDetail = ValueChangedDetail
+type ScrollDetail = ValueChangedDetail
 
 interface ScrollBar {
   addEventListener<K extends keyof ScrollBarEventKeyMap>(
@@ -130,7 +126,7 @@ class ScrollBar extends Control {
     this.#valueInitial = initialValue
   }
 
-  arrange(size: ISize, previousSize?: ISize): void {
+  arrange(size: Size, previousSize?: Size): void {
     const maximum = this.#maximum - this.#minimum
     if (maximum <= 0) {
       this.el.classList.remove(styles.scrollBarScrollable)

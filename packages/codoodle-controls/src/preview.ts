@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import Grid from "./controls/Grid"
-import type GridColumn from "./controls/Grid/GridColumn"
-import type GridRow from "./controls/Grid/GridRow"
-import ScrollBar, { ScrollOrientation } from "./controls/ScrollBar"
+import Grid from "./ui/controls/Grid"
+import type GridColumn from "./ui/controls/Grid/GridColumn"
+import type GridRow from "./ui/controls/Grid/GridRow"
+import ScrollBar, { ScrollOrientation } from "./ui/controls/ScrollBar"
 
 {
   const grid = new Grid()
