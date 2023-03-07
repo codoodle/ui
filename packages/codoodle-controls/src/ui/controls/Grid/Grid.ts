@@ -283,8 +283,8 @@ class Grid<T extends GridRow = GridRow> extends Control {
             ? size.width - scrollBarSizeVertical
             : size.width,
           height: scrollable.horizontal
-            ? size.height - scrollBarSizeHorizontal
-            : size.height,
+            ? size.height - this.#headersHeight - scrollBarSizeHorizontal
+            : size.height - this.#headersHeight,
         }
       } while (
         scrollablePrev.horizontal !== scrollable.horizontal ||
@@ -310,14 +310,14 @@ class Grid<T extends GridRow = GridRow> extends Control {
         this.#scrollBarVertical.maximum = this.#rowsHeight - sizeInner.height
         this.#scrollBarVertical.measure({
           width: scrollBarSizeVertical,
-          height: sizeInner.height - this.#headersHeight,
+          height: sizeInner.height,
         })
         this.#elWrap.classList.add(styles.gridScrollableVertical)
       } else {
         this.#scrollBarVertical.maximum = 0
         this.#scrollBarVertical.measure({
           width: scrollBarSizeVertical,
-          height: sizeInner.height - this.#headersHeight,
+          height: sizeInner.height,
         })
         this.#elWrap.classList.remove(styles.gridScrollableVertical)
       }
@@ -343,15 +343,17 @@ class Grid<T extends GridRow = GridRow> extends Control {
       renderingBounds.columnEnd + 1
     )
     this.#elHead.innerHTML = columns
-      .map(
-        (c, columnIndex) =>
-          `<div class="${styles.gridCell}" style="left: ${
-            c.left - this.#scrollBarHorizontal.value
-          }px; width: ${c.width}px; top: 0">head ${
-            columnIndex + renderingBounds.columnBegin + 1
-          }</div>`
-      )
-      .join(" ")
+      .map((c, j) => {
+        const columnIndex = j + renderingBounds.columnBegin
+        return `<div class="${styles.gridCell} ${
+          columnIndex === this.#columns.length - 1
+            ? styles.gridCellLastColumn
+            : ""
+        }" style="left: ${c.left - this.#scrollBarHorizontal.value}px; width: ${
+          c.width
+        }px; top: 0">${c.origin.name ?? c.origin.dataField ?? ""}</div>`
+      })
+      .join("")
   }
 
   #renderBody(renderingBounds: GridRenderingBounds) {
@@ -363,22 +365,32 @@ class Grid<T extends GridRow = GridRow> extends Control {
       renderingBounds.rowBegin,
       renderingBounds.rowEnd + 1
     )
+
     this.#elBody.innerHTML = rows
-      .map((r, rowIndex) =>
-        columns
-          .map(
-            (c, columnIndex) =>
-              `<div class="${styles.gridCell}" style="left: ${
-                c.left - this.#scrollBarHorizontal.value
-              }px; width: ${c.width}px; top: ${
-                r.top - this.#scrollBarVertical.value
-              }px"><div class="${styles.gridCellContent}">Body ${
-                rowIndex + renderingBounds.rowBegin + 1
-              }-${columnIndex + renderingBounds.columnBegin + 1}</div></div>`
-          )
-          .join(" ")
-      )
-      .join(" ")
+      .map((r, i) => {
+        const rowIndex = i + renderingBounds.rowBegin
+        console.log(renderingBounds, rowIndex)
+
+        return columns
+          .map((c, j) => {
+            const columnIndex = j + renderingBounds.columnBegin
+            return `<div class="${styles.gridCell} ${
+              columnIndex === this.#columns.length - 1
+                ? styles.gridCellLastColumn
+                : ""
+            } ${
+              rowIndex === this.#rows.length - 1 ? styles.gridCellLastRow : ""
+            }" style="left: ${
+              c.left - this.#scrollBarHorizontal.value
+            }px; width: ${c.width}px; top: ${
+              r.top - this.#scrollBarVertical.value
+            }px"><div class="${styles.gridCellContent}">${
+              c.origin.dataField && r.origin[c.origin.dataField]
+            }</div></div>`
+          })
+          .join("")
+      })
+      .join("")
   }
 
   #getIndexBounds({ left, top, width, height }: Rect): GridRenderingBounds {

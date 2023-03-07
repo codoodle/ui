@@ -1,8 +1,9 @@
 import type GridColumnAlignment from "./GridColumnAlignment"
 
 interface GridColumn {
-  dataField?: string | undefined
-  align?: GridColumnAlignment | undefined
+  name?: string
+  dataField?: string
+  align?: GridColumnAlignment
   width: number
 }
 

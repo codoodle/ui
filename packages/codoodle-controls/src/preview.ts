@@ -5,13 +5,16 @@ import type GridRow from "./ui/controls/Grid/GridRow"
 import ScrollBar, { ScrollOrientation } from "./ui/controls/ScrollBar"
 
 {
+  const COUNT_OF_COLUMN = 100
+  const COUNT_OF_ROW = 10000
   const grid = new Grid()
   grid.el.style.height = "600px"
   grid.columns = (function () {
     const columns: GridColumn[] = []
-    for (let i = 0; i < 100; i++) {
+    for (let j = 0; j < COUNT_OF_COLUMN; j++) {
       columns.push({
-        dataField: "1",
+        name: `${j + 1}`,
+        dataField: `${j}`,
         width: 100,
       })
     }
@@ -19,11 +22,12 @@ import ScrollBar, { ScrollOrientation } from "./ui/controls/ScrollBar"
   })()
   grid.rows = (function () {
     const rows: GridRow[] = []
-    for (let i = 0; i < 1000000; i++) {
-      rows.push({
-        dataField: "1",
-        width: 100,
-      })
+    for (let i = 0; i < COUNT_OF_ROW; i++) {
+      const row = {} as GridRow
+      for (let j = 0; j < COUNT_OF_COLUMN; j++) {
+        row[`${j}`] = `${i + 1}-${j + 1}`
+      }
+      rows.push(row)
     }
     return rows
   })()
