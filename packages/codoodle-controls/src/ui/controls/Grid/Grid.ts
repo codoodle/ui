@@ -59,7 +59,6 @@ class Grid<T extends GridRow = GridRow> extends Control {
   #elCSE
   #scrollBarHorizontal
   #scrollBarVertical
-  #handleRender = toOptimizedFunction(this, this.#render)
   #columns: InternalGridColumn[] = []
   #columnsOrigin: GridColumn[] = []
   #columnsWidth = 0
@@ -67,6 +66,61 @@ class Grid<T extends GridRow = GridRow> extends Control {
   #rowsOrigin: T[] = []
   #rowsHeight = 0
   #headersHeight = 30
+
+  get #scrollableHorizontal() {
+    return this.#elWrap.classList.contains(styles.gridScrollableHorizontal)
+  }
+
+  get #scrollableVertical() {
+    return this.#elWrap.classList.contains(styles.gridScrollableVertical)
+  }
+
+  #handleRender = toOptimizedFunction(this, this.#render)
+
+  #handleWheel: (e: WheelEvent) => void = function (this: Grid, e: WheelEvent) {
+    let shouldBeRender = false
+    if (this.#scrollableHorizontal && e.deltaX !== 0) {
+      if (
+        (this.#scrollBarHorizontal.value > this.#scrollBarHorizontal.minimum &&
+          e.deltaX < 0) ||
+        (this.#scrollBarHorizontal.value < this.#scrollBarHorizontal.maximum &&
+          e.deltaX > 0)
+      ) {
+        e.preventDefault()
+      }
+
+      if (
+        this.#scrollBarHorizontal.value > this.#scrollBarHorizontal.minimum ||
+        this.#scrollBarHorizontal.value < this.#scrollBarHorizontal.maximum
+      ) {
+        this.#scrollBarHorizontal.value +=
+          e.deltaX * this.#scrollBarHorizontal.ratio
+        shouldBeRender = true
+      }
+    }
+    if (this.#scrollableVertical && e.deltaY !== 0) {
+      if (
+        (this.#scrollBarVertical.value > this.#scrollBarVertical.minimum &&
+          e.deltaY < 0) ||
+        (this.#scrollBarVertical.value < this.#scrollBarVertical.maximum &&
+          e.deltaY > 0)
+      ) {
+        e.preventDefault()
+      }
+
+      if (
+        this.#scrollBarVertical.value > this.#scrollBarVertical.minimum ||
+        this.#scrollBarVertical.value < this.#scrollBarVertical.maximum
+      ) {
+        this.#scrollBarVertical.value +=
+          e.deltaY * this.#scrollBarVertical.ratio
+        shouldBeRender = true
+      }
+    }
+    if (shouldBeRender) {
+      this.#handleRender()
+    }
+  }.bind(this)
 
   get columns(): GridColumn[] {
     return this.#columnsOrigin
@@ -208,6 +262,7 @@ class Grid<T extends GridRow = GridRow> extends Control {
   @Initialization
   override initialize(): void {
     super.initialize()
+    this.#elWrap.addEventListener("wheel", this.#handleWheel)
     this.#scrollBarHorizontal.initialize()
     this.#scrollBarHorizontal.addEventListener(
       "valueChanged",
@@ -215,6 +270,21 @@ class Grid<T extends GridRow = GridRow> extends Control {
     )
     this.#scrollBarVertical.initialize()
     this.#scrollBarVertical.addEventListener("valueChanged", this.#handleRender)
+  }
+
+  override dispose(): void {
+    this.#elWrap.removeEventListener("wheel", this.#handleWheel)
+    this.#scrollBarHorizontal.removeEventListener(
+      "valueChanged",
+      this.#handleRender
+    )
+    this.#scrollBarHorizontal.dispose()
+    this.#scrollBarVertical.removeEventListener(
+      "valueChanged",
+      this.#handleRender
+    )
+    this.#scrollBarVertical.dispose()
+    super.dispose()
   }
 
   arrange(size: Size, previousSize?: Size): void {
@@ -235,12 +305,8 @@ class Grid<T extends GridRow = GridRow> extends Control {
         10
       )
       let scrollablePrev = {
-        horizontal: this.#elWrap.classList.contains(
-          styles.gridScrollableHorizontal
-        ),
-        vertical: this.#elWrap.classList.contains(
-          styles.gridScrollableVertical
-        ),
+        horizontal: this.#scrollableHorizontal,
+        vertical: this.#scrollableVertical,
       }
       const sizeInnerPrev = {
         width: scrollablePrev.vertical
