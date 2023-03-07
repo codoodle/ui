@@ -68,12 +68,7 @@ class ScrollBar extends Control {
     this.#value = Math.max(this.#minimum, Math.min(this.#maximum, value))
     this.#valueIn = Math.max(
       this.#minimumIn,
-      Math.min(
-        this.#maximumIn,
-
-        (this.#value - this.#minimum) /
-          ((this.#maximum - this.#minimum) / this.#maximumIn)
-      )
+      Math.min(this.#maximumIn, (this.#value - this.#minimum) / this.ratio)
     )
     if (valuePrev !== this.#value) {
       this.#elThumb.style.transform = this.isHorizontal
@@ -94,6 +89,10 @@ class ScrollBar extends Control {
   }
   set maximum(value: number) {
     this.#maximum = value
+  }
+
+  get ratio() {
+    return (this.#maximum - this.#minimum) / this.#maximumIn
   }
 
   constructor(
@@ -189,11 +188,7 @@ class ScrollBar extends Control {
     if (valueIn >= this.#maximumIn) {
       return this.#maximum
     }
-    return (
-      Math.floor(
-        valueIn * ((this.#maximum - this.#minimum) / this.#maximumIn)
-      ) + this.#minimum
-    )
+    return Math.floor(valueIn * this.ratio) + this.#minimum
   }
 
   #handleMouseDown = (e: MouseEvent) => {
