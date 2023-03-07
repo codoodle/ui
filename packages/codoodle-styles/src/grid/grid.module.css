@@ -99,7 +99,9 @@
 }
 .grid .gridWrap .gridCNE {
   background-color: var(--codoodle-grid-headBackgroundColor);
-  border-bottom: var(--codoodle-grid-border);
+  border: var(--codoodle-grid-border);
+  border-top: none;
+  border-right: none;
   display: none;
   grid-column: 2/3;
   grid-row: 1/2;
@@ -111,19 +113,25 @@
   grid-row: 3/4;
 }
 .grid .gridWrap.gridScrollableVertical {
-  grid-template-columns: 1fr 20px;
+  grid-template-columns: 1fr var(--codoodle-scrollBar-size);
 }
 .grid .gridWrap.gridScrollableVertical .gridScrollBarVertical {
   display: block;
+}
+.grid .gridWrap.gridScrollableVertical .gridCellLastRow {
+  border-bottom: none;
 }
 .grid .gridWrap.gridScrollableVertical .gridCNE {
   display: block;
 }
 .grid .gridWrap.gridScrollableHorizontal {
-  grid-template-rows: auto 1fr 20px;
+  grid-template-rows: auto 1fr var(--codoodle-scrollBar-size);
 }
 .grid .gridWrap.gridScrollableHorizontal .gridScrollBarHorizontal {
   display: block;
+}
+.grid .gridWrap.gridScrollableHorizontal .gridCellLastColumn {
+  border-right: none;
 }
 .grid .gridWrap.gridScrollableVertical.gridScrollableHorizontal .gridCSE {
   display: block;
@@ -156,7 +164,7 @@
   display: block;
 }
 .grid .gridWrap.gridFreezableColumns.gridScrollableVertical {
-  grid-template-columns: auto 1fr 20px;
+  grid-template-columns: auto 1fr var(--codoodle-scrollBar-size);
 }
 .grid .gridWrap.gridFreezableRows {
   grid-template-rows: auto auto 1fr;
@@ -177,7 +185,7 @@
   display: block;
 }
 .grid .gridWrap.gridFreezableRows.gridScrollableHorizontal {
-  grid-template-rows: max-content auto 1fr 20px;
+  grid-template-rows: max-content auto 1fr var(--codoodle-scrollBar-size);
 }
 .grid .gridWrap.gridFreezableColumns.gridFreezableRows .gridBody.gridFrozenColumns.gridFrozenRows {
   display: block;

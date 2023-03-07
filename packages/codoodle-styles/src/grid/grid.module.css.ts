@@ -12,7 +12,9 @@ type GridClassNames = {
   gridCNE: string
   gridCSE: string
   gridScrollableVertical: string
+  gridCellLastRow: string
   gridScrollableHorizontal: string
+  gridCellLastColumn: string
   gridFreezableColumns: string
   gridFreezableRows: string
 }

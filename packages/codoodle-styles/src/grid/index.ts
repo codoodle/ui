@@ -12,28 +12,32 @@ type GridClassNames = {
   gridCNE: string
   gridCSE: string
   gridScrollableVertical: string
+  gridCellLastRow: string
   gridScrollableHorizontal: string
+  gridCellLastColumn: string
   gridFreezableColumns: string
   gridFreezableRows: string
 }
 
 const gridClassNames: GridClassNames = {
-  grid: "__Z1S5Bx-8S9w-",
-  gridWrap: "__SnGkWhp7luk-",
-  gridCell: "__uE6N69hvtMA-",
-  gridCellContent: "__WozunR5VMXQ-",
-  gridHead: "__8s4OOEb5h8E-",
-  gridFrozenColumns: "__5VMVBJDO-uc-",
-  gridBody: "__lr00Mz8Nq8w-",
-  gridFrozenRows: "__QdFaval4U0E-",
-  gridScrollBarHorizontal: "__ri76JVzS-b8-",
-  gridScrollBarVertical: "__84vItRp7J4Q-",
-  gridCNE: "__OKkdFH8wbkQ-",
-  gridCSE: "__8nkHMK2PDaY-",
-  gridScrollableVertical: "__-fBaKqmZ4NU-",
-  gridScrollableHorizontal: "__fSJqDSn6uNo-",
-  gridFreezableColumns: "__WBCbeWv4cr4-",
-  gridFreezableRows: "__7rY6noVk6Ys-",
+  grid: "__vq04hEuH1zg-",
+  gridWrap: "__6-uvyu-2g6A-",
+  gridCell: "__fdYgy9yjN7I-",
+  gridCellContent: "__9GOqQLih-Co-",
+  gridHead: "__4uQ0IjoKQNQ-",
+  gridFrozenColumns: "__dXb8JpY4kCY-",
+  gridBody: "__ThQR4eiu5h4-",
+  gridFrozenRows: "__ojKoLFVu-FY-",
+  gridScrollBarHorizontal: "__ITaGsGEvkm8-",
+  gridScrollBarVertical: "__y6-RPI-t-zs-",
+  gridCNE: "__v7J9dFViOuA-",
+  gridCSE: "__2ckJNgdY-QI-",
+  gridScrollableVertical: "__jlPTAph9CoE-",
+  gridCellLastRow: "__rdJkwuemsAU-",
+  gridScrollableHorizontal: "__VElfajfvryk-",
+  gridCellLastColumn: "__uZm4DXub-SM-",
+  gridFreezableColumns: "__8JPAfd4IZEo-",
+  gridFreezableRows: "__8y5KPPPb9oc-",
 }
 
 export default gridClassNames

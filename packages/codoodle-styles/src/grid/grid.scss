@@ -81,7 +81,6 @@
 
         background-color: yellow;
       }
-
       &.gridFrozenColumns.gridFrozenRows {
         display: none;
         grid-column: 1/2;
@@ -104,7 +103,9 @@
     }
     .gridCNE {
       background-color: var(--codoodle-grid-headBackgroundColor);
-      border-bottom: var(--codoodle-grid-border);
+      border: var(--codoodle-grid-border);
+      border-top: none;
+      border-right: none;
       display: none;
       grid-column: 2/3;
       grid-row: 1/2;
@@ -117,18 +118,24 @@
     }
 
     &.gridScrollableVertical {
-      grid-template-columns: 1fr 20px;
+      grid-template-columns: 1fr var(--codoodle-scrollBar-size);
       .gridScrollBarVertical {
         display: block;
+      }
+      .gridCellLastRow {
+        border-bottom: none;
       }
       .gridCNE {
         display: block;
       }
     }
     &.gridScrollableHorizontal {
-      grid-template-rows: auto 1fr 20px;
+      grid-template-rows: auto 1fr var(--codoodle-scrollBar-size);
       .gridScrollBarHorizontal {
         display: block;
+      }
+      .gridCellLastColumn {
+        border-right: none;
       }
     }
     &.gridScrollableVertical.gridScrollableHorizontal {
@@ -166,7 +173,7 @@
     }
 
     &.gridScrollableVertical {
-      grid-template-columns: auto 1fr 20px;
+      grid-template-columns: auto 1fr var(--codoodle-scrollBar-size);
     }
   }
   .gridWrap.gridFreezableRows {
@@ -188,7 +195,7 @@
     }
 
     &.gridScrollableHorizontal {
-      grid-template-rows: max-content auto 1fr 20px;
+      grid-template-rows: max-content auto 1fr var(--codoodle-scrollBar-size);
     }
   }
   .gridWrap.gridFreezableColumns.gridFreezableRows {

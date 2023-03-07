@@ -11,21 +11,21 @@
   --codoodle-grid-scrollBar-backgroundColor: #faf9f8;
 }
 
-.__Z1S5Bx-8S9w- {
+.__vq04hEuH1zg- {
   background-color: var(--codoodle-grid-backgroundColor);
   border: var(--codoodle-grid-border);
 }
-.__Z1S5Bx-8S9w- * {
+.__vq04hEuH1zg- * {
   box-sizing: border-box;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   height: 100%;
   width: 100%;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__uE6N69hvtMA- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__fdYgy9yjN7I- {
   position: absolute;
   border: var(--codoodle-grid-border);
   border-left: none;
@@ -34,13 +34,13 @@
   align-items: center;
   padding: 0 0.5em;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__uE6N69hvtMA- .__WozunR5VMXQ- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__fdYgy9yjN7I- .__9GOqQLih-Co- {
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__8s4OOEb5h8E- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__4uQ0IjoKQNQ- {
   background-color: var(--codoodle-grid-headBackgroundColor);
   border-bottom: var(--codoodle-grid-border);
   grid-column: 1/2;
@@ -48,137 +48,145 @@
   overflow: hidden;
   position: relative;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__8s4OOEb5h8E- .__uE6N69hvtMA- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__4uQ0IjoKQNQ- .__fdYgy9yjN7I- {
   height: var(--codoodle-grid-headRowHeight);
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__8s4OOEb5h8E-.__5VMVBJDO-uc- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__4uQ0IjoKQNQ-.__dXb8JpY4kCY- {
   display: none;
   grid-column: 1/2;
   grid-row: 1/2;
   background-color: yellow;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__lr00Mz8Nq8w- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__ThQR4eiu5h4- {
   background-color: var(--codoodle-grid-bodyBackgroundColor);
   grid-column: 1/2;
   grid-row: 2/3;
   overflow: hidden;
   position: relative;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__lr00Mz8Nq8w- .__uE6N69hvtMA- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__ThQR4eiu5h4- .__fdYgy9yjN7I- {
   height: var(--codoodle-grid-bodyRowHeight);
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__lr00Mz8Nq8w-.__5VMVBJDO-uc- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__ThQR4eiu5h4-.__dXb8JpY4kCY- {
   display: none;
   grid-column: 1/2;
   grid-row: 2/3;
   background-color: yellow;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__lr00Mz8Nq8w-.__QdFaval4U0E- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__ThQR4eiu5h4-.__ojKoLFVu-FY- {
   display: none;
   grid-column: 1/2;
   grid-row: 2/3;
   background-color: yellow;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__lr00Mz8Nq8w-.__5VMVBJDO-uc-.__QdFaval4U0E- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__ThQR4eiu5h4-.__dXb8JpY4kCY-.__ojKoLFVu-FY- {
   display: none;
   grid-column: 1/2;
   grid-row: 2/3;
   background-color: red;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__ri76JVzS-b8- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__ITaGsGEvkm8- {
   background-color: var(--codoodle-grid-scrollBar-backgroundColor);
   display: none;
   grid-column: 1/2;
   grid-row: 3/4;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__84vItRp7J4Q- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__y6-RPI-t-zs- {
   background-color: var(--codoodle-grid-scrollBar-backgroundColor);
   display: none;
   grid-column: 2/3;
   grid-row: 2/3;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__OKkdFH8wbkQ- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__v7J9dFViOuA- {
   background-color: var(--codoodle-grid-headBackgroundColor);
-  border-bottom: var(--codoodle-grid-border);
+  border: var(--codoodle-grid-border);
+  border-top: none;
+  border-right: none;
   display: none;
   grid-column: 2/3;
   grid-row: 1/2;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk- .__8nkHMK2PDaY- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A- .__2ckJNgdY-QI- {
   background-color: var(--codoodle-grid-scrollBar-backgroundColor);
   display: none;
   grid-column: 2/3;
   grid-row: 3/4;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__-fBaKqmZ4NU- {
-  grid-template-columns: 1fr 20px;
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__jlPTAph9CoE- {
+  grid-template-columns: 1fr var(--codoodle-scrollBar-size);
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__-fBaKqmZ4NU- .__84vItRp7J4Q- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__jlPTAph9CoE- .__y6-RPI-t-zs- {
   display: block;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__-fBaKqmZ4NU- .__OKkdFH8wbkQ- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__jlPTAph9CoE- .__rdJkwuemsAU- {
+  border-bottom: none;
+}
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__jlPTAph9CoE- .__v7J9dFViOuA- {
   display: block;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__fSJqDSn6uNo- {
-  grid-template-rows: auto 1fr 20px;
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__VElfajfvryk- {
+  grid-template-rows: auto 1fr var(--codoodle-scrollBar-size);
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__fSJqDSn6uNo- .__ri76JVzS-b8- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__VElfajfvryk- .__ITaGsGEvkm8- {
   display: block;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__-fBaKqmZ4NU-.__fSJqDSn6uNo- .__8nkHMK2PDaY- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__VElfajfvryk- .__uZm4DXub-SM- {
+  border-right: none;
+}
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__jlPTAph9CoE-.__VElfajfvryk- .__2ckJNgdY-QI- {
   display: block;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__WBCbeWv4cr4- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8JPAfd4IZEo- {
   grid-template-columns: auto 1fr;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__WBCbeWv4cr4- .__8s4OOEb5h8E-:not(.__5VMVBJDO-uc-) {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8JPAfd4IZEo- .__4uQ0IjoKQNQ-:not(.__dXb8JpY4kCY-) {
   grid-column: 1/3;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__WBCbeWv4cr4- .__lr00Mz8Nq8w-:not(.__5VMVBJDO-uc-) {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8JPAfd4IZEo- .__ThQR4eiu5h4-:not(.__dXb8JpY4kCY-) {
   grid-column: 1/3;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__WBCbeWv4cr4- .__ri76JVzS-b8- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8JPAfd4IZEo- .__ITaGsGEvkm8- {
   grid-column: 1/3;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__WBCbeWv4cr4- .__84vItRp7J4Q- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8JPAfd4IZEo- .__y6-RPI-t-zs- {
   grid-column: 3/4;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__WBCbeWv4cr4- .__OKkdFH8wbkQ- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8JPAfd4IZEo- .__v7J9dFViOuA- {
   grid-column: 3/4;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__WBCbeWv4cr4- .__8nkHMK2PDaY- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8JPAfd4IZEo- .__2ckJNgdY-QI- {
   grid-column: 3/4;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__WBCbeWv4cr4- .__8s4OOEb5h8E-.__5VMVBJDO-uc- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8JPAfd4IZEo- .__4uQ0IjoKQNQ-.__dXb8JpY4kCY- {
   display: block;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__WBCbeWv4cr4- .__lr00Mz8Nq8w-.__5VMVBJDO-uc-:not(.__QdFaval4U0E-) {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8JPAfd4IZEo- .__ThQR4eiu5h4-.__dXb8JpY4kCY-:not(.__ojKoLFVu-FY-) {
   display: block;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__WBCbeWv4cr4-.__-fBaKqmZ4NU- {
-  grid-template-columns: auto 1fr 20px;
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8JPAfd4IZEo-.__jlPTAph9CoE- {
+  grid-template-columns: auto 1fr var(--codoodle-scrollBar-size);
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__7rY6noVk6Ys- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8y5KPPPb9oc- {
   grid-template-rows: auto auto 1fr;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__7rY6noVk6Ys- .__lr00Mz8Nq8w-:not(.__QdFaval4U0E-) {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8y5KPPPb9oc- .__ThQR4eiu5h4-:not(.__ojKoLFVu-FY-) {
   grid-row: 2/4;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__7rY6noVk6Ys- .__ri76JVzS-b8- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8y5KPPPb9oc- .__ITaGsGEvkm8- {
   grid-row: 4/5;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__7rY6noVk6Ys- .__84vItRp7J4Q- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8y5KPPPb9oc- .__y6-RPI-t-zs- {
   grid-row: 2/4;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__7rY6noVk6Ys- .__8nkHMK2PDaY- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8y5KPPPb9oc- .__2ckJNgdY-QI- {
   grid-row: 4/5;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__7rY6noVk6Ys- .__lr00Mz8Nq8w-.__QdFaval4U0E-:not(.__5VMVBJDO-uc-) {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8y5KPPPb9oc- .__ThQR4eiu5h4-.__ojKoLFVu-FY-:not(.__dXb8JpY4kCY-) {
   display: block;
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__7rY6noVk6Ys-.__fSJqDSn6uNo- {
-  grid-template-rows: max-content auto 1fr 20px;
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8y5KPPPb9oc-.__VElfajfvryk- {
+  grid-template-rows: max-content auto 1fr var(--codoodle-scrollBar-size);
 }
-.__Z1S5Bx-8S9w- .__SnGkWhp7luk-.__WBCbeWv4cr4-.__7rY6noVk6Ys- .__lr00Mz8Nq8w-.__5VMVBJDO-uc-.__QdFaval4U0E- {
+.__vq04hEuH1zg- .__6-uvyu-2g6A-.__8JPAfd4IZEo-.__8y5KPPPb9oc- .__ThQR4eiu5h4-.__dXb8JpY4kCY-.__ojKoLFVu-FY- {
   display: block;
 }
