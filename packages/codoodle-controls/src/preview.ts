@@ -31,6 +31,8 @@ import ScrollBar, { ScrollOrientation } from "./ui/controls/ScrollBar"
     }
     return rows
   })()
+  grid.frozenColumns = 3
+  grid.frozenRows = 10
   grid.initialize()
   document.body.append(
     // @ts-ignore

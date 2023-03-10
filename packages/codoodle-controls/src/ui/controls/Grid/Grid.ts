@@ -62,9 +62,11 @@ class Grid<T extends GridRow = GridRow> extends Control {
   #columns: InternalGridColumn[] = []
   #columnsOrigin: GridColumn[] = []
   #columnsWidth = 0
+  #columnsFrozen = 0
   #rows: InternalGridRow<T>[] = []
   #rowsOrigin: T[] = []
   #rowsHeight = 0
+  #rowsFrozen = 0
   #headersHeight = 30
 
   get #scrollableHorizontal() {
@@ -140,6 +142,20 @@ class Grid<T extends GridRow = GridRow> extends Control {
       return acc
     }, [] as InternalGridColumn[])
     this.#columnsWidth = this.#columns[this.#columns.length - 1]?.right ?? 0
+    if (this.#columnsFrozen > 0 && this.#columns[this.#columnsFrozen - 1]) {
+      this.#elWrap.classList.add(styles.gridFreezableColumns)
+      this.#elBodyFrozenColumns.style.width = `${
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        this.#columns[this.#columnsFrozen - 1]!.right
+      }px`
+    } else {
+      this.#elWrap.classList.remove(styles.gridFreezableColumns)
+      this.#elHeadFrozenColumns.innerHTML = ""
+      this.#elBodyFrozenColumns.innerHTML = ""
+    }
+    if (this.initialized) {
+      this.#handleRender()
+    }
   }
 
   get rows(): T[] {
@@ -160,6 +176,60 @@ class Grid<T extends GridRow = GridRow> extends Control {
       return acc
     }, [] as InternalGridRow<T>[])
     this.#rowsHeight = this.#rows[this.#rows.length - 1]?.bottom ?? 0
+    if (this.#rowsFrozen > 0 && this.#rows[this.#rowsFrozen - 1]) {
+      this.#elWrap.classList.add(styles.gridFreezableRows)
+      this.#elBodyFrozenRows.style.height = `${
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        this.#rows[this.#rowsFrozen - 1]!.bottom
+      }px`
+    } else {
+      this.#elWrap.classList.remove(styles.gridFreezableRows)
+      this.#elBodyFrozenRows.innerHTML = ""
+    }
+    if (this.initialized) {
+      this.#handleRender()
+    }
+  }
+
+  get frozenColumns(): number {
+    return this.#columnsFrozen
+  }
+  set frozenColumns(value: number) {
+    this.#columnsFrozen = Math.max(value, 0)
+    if (this.#columnsFrozen > 0 && this.#columns[this.#columnsFrozen - 1]) {
+      this.#elWrap.classList.add(styles.gridFreezableColumns)
+      this.#elBodyFrozenColumns.style.width = `${
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        this.#columns[this.#columnsFrozen - 1]!.right
+      }px`
+    } else {
+      this.#elWrap.classList.remove(styles.gridFreezableColumns)
+      this.#elHeadFrozenColumns.innerHTML = ""
+      this.#elBodyFrozenColumns.innerHTML = ""
+    }
+    if (this.initialized) {
+      this.#handleRender()
+    }
+  }
+
+  get frozenRows(): number {
+    return this.#rowsFrozen
+  }
+  set frozenRows(value: number) {
+    this.#rowsFrozen = value
+    if (this.#rowsFrozen > 0 && this.#rows[this.#rowsFrozen - 1]) {
+      this.#elWrap.classList.add(styles.gridFreezableRows)
+      this.#elBodyFrozenRows.style.height = `${
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        this.#rows[this.#rowsFrozen - 1]!.bottom
+      }px`
+    } else {
+      this.#elWrap.classList.remove(styles.gridFreezableRows)
+      this.#elBodyFrozenRows.innerHTML = ""
+    }
+    if (this.initialized) {
+      this.#handleRender()
+    }
   }
 
   constructor(el?: HTMLElement) {
@@ -398,149 +468,528 @@ class Grid<T extends GridRow = GridRow> extends Control {
       width: this.availableSize.width,
       height: this.availableSize.height,
     }
+    const columnsFrozen =
+      this.#columnsFrozen > 0 && this.#columns[this.#columnsFrozen - 1]
+        ? this.#columnsFrozen
+        : 0
+    const rowsFrozen =
+      this.#rowsFrozen > 0 && this.#rows[this.#rowsFrozen - 1]
+        ? this.#rowsFrozen
+        : 0
+    if (columnsFrozen > 0) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      const right = this.#columns[this.#columnsFrozen - 1]!.right
+      bounds.left += right
+      bounds.width -= right
+    }
+    if (rowsFrozen) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      const bottom = this.#rows[this.#rowsFrozen - 1]!.bottom
+      bounds.top += bottom
+      bounds.height -= bottom
+    }
     const gridBounds = this.#getIndexBounds(bounds)
+    console.log(bounds, gridBounds)
+
     this.#renderHead(gridBounds)
     this.#renderBody(gridBounds)
   }
 
-  #renderHead(renderingBounds: GridRenderingBounds) {
-    const columns = this.#columns.slice(
-      renderingBounds.columnBegin,
-      renderingBounds.columnEnd + 1
-    )
-    const latestColumnIndex = this.#columns.length - 1
+  #renderHead({
+    columnBegin: renderingBoundsColumnBegin,
+    columnEnd: renderingBoundsColumnEnd,
+  }: GridRenderingBounds) {
+    const columnsFrozen =
+      this.#columnsFrozen > 0 && this.#columns[this.#columnsFrozen - 1]
+        ? this.#columnsFrozen
+        : 0
     const elCellBase = document.createElement("div")
     elCellBase.classList.add(styles.gridCell)
-    const renderedColumns = new Set<number>()
-    const renderedRows = new Set<number>()
-    const removeCells: HTMLElement[] = []
-    for (const child of this.#elHead.children) {
-      const elCell = child as HTMLElement
-      const columnBegin = parseInt(elCell.dataset["columnBegin"] ?? "-1", 10)
-      const columnEnd = parseInt(elCell.dataset["columnEnd"] ?? "-1", 10)
-      const column = this.#columns[columnBegin]
-      const rowBegin = parseInt(elCell.dataset["rowBegin"] ?? "-1", 10)
-      const rowEnd = parseInt(elCell.dataset["rowEnd"] ?? "-1", 10)
-      const intersectsWith = !(
-        renderingBounds.rowBegin > rowEnd ||
-        renderingBounds.rowEnd < rowBegin ||
-        renderingBounds.columnBegin > columnEnd ||
-        renderingBounds.columnEnd < columnBegin
+    {
+      const renderingBounds = {
+        rowBegin: 0,
+        rowEnd: 0,
+        columnBegin: Math.max(columnsFrozen, renderingBoundsColumnBegin),
+        columnEnd: renderingBoundsColumnEnd,
+      }
+      const columns = this.#columns.slice(
+        renderingBounds.columnBegin,
+        renderingBounds.columnEnd + 1
       )
-      if (intersectsWith && column) {
-        for (let i = columnBegin; i <= columnEnd; i++) {
-          renderedColumns.add(i)
+      const latestColumnIndex = this.#columns.length - 1
+      const renderedColumns = new Set<number>()
+      const renderedRows = new Set<number>()
+      const removeCells: HTMLElement[] = []
+      for (const child of this.#elHead.children) {
+        const elCell = child as HTMLElement
+        const columnBegin = parseInt(elCell.dataset["columnBegin"] ?? "-1", 10)
+        const columnEnd = parseInt(elCell.dataset["columnEnd"] ?? "-1", 10)
+        const column = this.#columns[columnBegin]
+        const rowBegin = parseInt(elCell.dataset["rowBegin"] ?? "-1", 10)
+        const rowEnd = parseInt(elCell.dataset["rowEnd"] ?? "-1", 10)
+        const intersectsWith = !(
+          renderingBounds.rowBegin > rowEnd ||
+          renderingBounds.rowEnd < rowBegin ||
+          renderingBounds.columnBegin > columnEnd ||
+          renderingBounds.columnEnd < columnBegin
+        )
+        if (intersectsWith && column) {
+          for (let i = columnBegin; i <= columnEnd; i++) {
+            renderedColumns.add(i)
+          }
+          for (let i = rowBegin; i <= rowEnd; i++) {
+            renderedRows.add(rowBegin)
+          }
+          elCell.style.left = `${
+            column.left - this.#scrollBarHorizontal.value
+          }px`
+          elCell.style.top = "0"
+          elCell.style.width = `${column.width}px`
+          continue
         }
-        for (let i = rowBegin; i <= rowEnd; i++) {
-          renderedRows.add(rowBegin)
-        }
-        elCell.style.left = `${column.left - this.#scrollBarHorizontal.value}px`
-        elCell.style.top = "0"
-        elCell.style.width = `${column.width}px`
-        continue
+        removeCells.push(elCell)
       }
-      removeCells.push(elCell)
-    }
-    for (const elCell of removeCells) {
-      elCell.remove()
-    }
-    let columnIndex = renderingBounds.columnBegin
-    for (const column of columns) {
-      if (!renderedColumns.has(columnIndex)) {
-        const elCell = elCellBase.cloneNode() as HTMLDivElement
-        if (columnIndex === latestColumnIndex) {
-          elCell.classList.add(styles.gridCellLastColumn)
-        }
-        elCell.style.left = `${column.left - this.#scrollBarHorizontal.value}px`
-        elCell.style.top = "0"
-        elCell.style.width = `${column.width}px`
-        elCell.dataset["columnBegin"] = `${columnIndex}`
-        elCell.dataset["columnEnd"] = `${columnIndex}`
-        elCell.dataset["rowBegin"] = "0"
-        elCell.dataset["rowEnd"] = "0"
-        elCell.append(`${column.origin.name ?? column.origin.dataField ?? ""}`)
-        this.#elHead.append(elCell)
+      for (const elCell of removeCells) {
+        elCell.remove()
       }
-      columnIndex++
-    }
-  }
-
-  #renderBody(renderingBounds: GridRenderingBounds) {
-    const columns = this.#columns.slice(
-      renderingBounds.columnBegin,
-      renderingBounds.columnEnd + 1
-    )
-    const rows = this.#rows.slice(
-      renderingBounds.rowBegin,
-      renderingBounds.rowEnd + 1
-    )
-    const latestColumnIndex = this.#columns.length - 1
-    const latestRowIndex = this.#rows.length - 1
-    const elCellBase = document.createElement("div")
-    elCellBase.classList.add(styles.gridCell)
-    const renderedColumns = new Set<number>()
-    const renderedRows = new Set<number>()
-    const removeCells: HTMLElement[] = []
-    for (const child of this.#elBody.children) {
-      const elCell = child as HTMLElement
-      const columnBegin = parseInt(elCell.dataset["columnBegin"] ?? "-1", 10)
-      const columnEnd = parseInt(elCell.dataset["columnEnd"] ?? "-1", 10)
-      const column = this.#columns[columnBegin]
-      const rowBegin = parseInt(elCell.dataset["rowBegin"] ?? "-1", 10)
-      const rowEnd = parseInt(elCell.dataset["rowEnd"] ?? "-1", 10)
-      const row = this.#rows[rowBegin]
-      const intersectsWith = !(
-        renderingBounds.rowBegin > rowEnd ||
-        renderingBounds.rowEnd < rowBegin ||
-        renderingBounds.columnBegin > columnEnd ||
-        renderingBounds.columnEnd < columnBegin
-      )
-      if (intersectsWith && column && row) {
-        for (let i = columnBegin; i <= columnEnd; i++) {
-          renderedColumns.add(i)
-        }
-        for (let i = rowBegin; i <= rowEnd; i++) {
-          renderedRows.add(rowBegin)
-        }
-        elCell.style.left = `${column.left - this.#scrollBarHorizontal.value}px`
-        elCell.style.top = `${row.top - this.#scrollBarVertical.value}px`
-        elCell.style.width = `${column.width}px`
-        continue
-      }
-      removeCells.push(elCell)
-    }
-    for (const elCell of removeCells) {
-      elCell.remove()
-    }
-    let rowIndex = renderingBounds.rowBegin
-    for (const row of rows) {
       let columnIndex = renderingBounds.columnBegin
       for (const column of columns) {
-        if (!renderedRows.has(rowIndex) || !renderedColumns.has(columnIndex)) {
+        if (!renderedColumns.has(columnIndex)) {
           const elCell = elCellBase.cloneNode() as HTMLDivElement
           if (columnIndex === latestColumnIndex) {
             elCell.classList.add(styles.gridCellLastColumn)
           }
-          if (rowIndex === latestRowIndex) {
-            elCell.classList.add(styles.gridCellLastRow)
+          elCell.style.left = `${
+            column.left - this.#scrollBarHorizontal.value
+          }px`
+          elCell.style.top = "0"
+          elCell.style.width = `${column.width}px`
+          elCell.dataset["columnBegin"] = `${columnIndex}`
+          elCell.dataset["columnEnd"] = `${columnIndex}`
+          elCell.dataset["rowBegin"] = "0"
+          elCell.dataset["rowEnd"] = "0"
+          elCell.append(
+            `${column.origin.name ?? column.origin.dataField ?? ""}`
+          )
+          this.#elHead.append(elCell)
+        }
+        columnIndex++
+      }
+    }
+    if (columnsFrozen > 0) {
+      const renderingBounds = {
+        rowBegin: 0,
+        rowEnd: 0,
+        columnBegin: 0,
+        columnEnd: columnsFrozen - 1,
+      }
+      const columns = this.#columns.slice(
+        renderingBounds.columnBegin,
+        renderingBounds.columnEnd + 1
+      )
+      const renderedColumns = new Set<number>()
+      const renderedRows = new Set<number>()
+      const removeCells: HTMLElement[] = []
+      for (const child of this.#elHeadFrozenColumns.children) {
+        const elCell = child as HTMLElement
+        const columnBegin = parseInt(elCell.dataset["columnBegin"] ?? "-1", 10)
+        const columnEnd = parseInt(elCell.dataset["columnEnd"] ?? "-1", 10)
+        const column = this.#columns[columnBegin]
+        const rowBegin = parseInt(elCell.dataset["rowBegin"] ?? "-1", 10)
+        const rowEnd = parseInt(elCell.dataset["rowEnd"] ?? "-1", 10)
+        const intersectsWith = !(
+          renderingBounds.rowBegin > rowEnd ||
+          renderingBounds.rowEnd < rowBegin ||
+          renderingBounds.columnBegin > columnEnd ||
+          renderingBounds.columnEnd < columnBegin
+        )
+        if (intersectsWith && column) {
+          for (let i = columnBegin; i <= columnEnd; i++) {
+            renderedColumns.add(i)
+          }
+          for (let i = rowBegin; i <= rowEnd; i++) {
+            renderedRows.add(rowBegin)
+          }
+          elCell.style.left = `${column.left}px`
+          elCell.style.top = "0"
+          elCell.style.width = `${column.width}px`
+          continue
+        }
+        removeCells.push(elCell)
+      }
+      for (const elCell of removeCells) {
+        elCell.remove()
+      }
+      let columnIndex = renderingBounds.columnBegin
+      for (const column of columns) {
+        if (!renderedColumns.has(columnIndex)) {
+          const elCell = elCellBase.cloneNode() as HTMLDivElement
+          elCell.style.left = `${column.left}px`
+          elCell.style.top = "0"
+          elCell.style.width = `${column.width}px`
+          elCell.dataset["columnBegin"] = `${columnIndex}`
+          elCell.dataset["columnEnd"] = `${columnIndex}`
+          elCell.dataset["rowBegin"] = "0"
+          elCell.dataset["rowEnd"] = "0"
+          elCell.append(
+            `${column.origin.name ?? column.origin.dataField ?? ""}`
+          )
+          this.#elHeadFrozenColumns.append(elCell)
+        }
+        columnIndex++
+      }
+    }
+  }
+
+  #renderBody({
+    rowBegin: renderingBoundsRowBegin,
+    rowEnd: renderingBoundsRowEnd,
+    columnBegin: renderingBoundsColumnBegin,
+    columnEnd: renderingBoundsColumnEnd,
+  }: GridRenderingBounds) {
+    const columnsFrozen =
+      this.#columnsFrozen > 0 && this.#columns[this.#columnsFrozen - 1]
+        ? this.#columnsFrozen
+        : 0
+    const rowsFrozen =
+      this.#rowsFrozen > 0 && this.#rows[this.#rowsFrozen - 1]
+        ? this.#rowsFrozen
+        : 0
+    const elCellBase = document.createElement("div")
+    elCellBase.classList.add(styles.gridCell)
+    {
+      const renderingBounds = {
+        rowBegin: renderingBoundsRowBegin,
+        rowEnd: renderingBoundsRowEnd,
+        columnBegin: renderingBoundsColumnBegin,
+        columnEnd: renderingBoundsColumnEnd,
+      }
+      const columns = this.#columns.slice(
+        renderingBounds.columnBegin,
+        renderingBounds.columnEnd + 1
+      )
+      const rows = this.#rows.slice(
+        renderingBounds.rowBegin,
+        renderingBounds.rowEnd + 1
+      )
+      const latestColumnIndex = this.#columns.length - 1
+      const latestRowIndex = this.#rows.length - 1
+      const renderedColumns = new Set<number>()
+      const renderedRows = new Set<number>()
+      const removeCells: HTMLElement[] = []
+      for (const child of this.#elBody.children) {
+        const elCell = child as HTMLElement
+        const columnBegin = parseInt(elCell.dataset["columnBegin"] ?? "-1", 10)
+        const columnEnd = parseInt(elCell.dataset["columnEnd"] ?? "-1", 10)
+        const column = this.#columns[columnBegin]
+        const rowBegin = parseInt(elCell.dataset["rowBegin"] ?? "-1", 10)
+        const rowEnd = parseInt(elCell.dataset["rowEnd"] ?? "-1", 10)
+        const row = this.#rows[rowBegin]
+        const intersectsWith = !(
+          renderingBounds.rowBegin > rowEnd ||
+          renderingBounds.rowEnd < rowBegin ||
+          renderingBounds.columnBegin > columnEnd ||
+          renderingBounds.columnEnd < columnBegin
+        )
+        if (intersectsWith && column && row) {
+          for (let i = columnBegin; i <= columnEnd; i++) {
+            renderedColumns.add(i)
+          }
+          for (let i = rowBegin; i <= rowEnd; i++) {
+            renderedRows.add(rowBegin)
           }
           elCell.style.left = `${
             column.left - this.#scrollBarHorizontal.value
           }px`
           elCell.style.top = `${row.top - this.#scrollBarVertical.value}px`
           elCell.style.width = `${column.width}px`
-          elCell.dataset["columnBegin"] = `${columnIndex}`
-          elCell.dataset["columnEnd"] = `${columnIndex}`
-          elCell.dataset["rowBegin"] = `${rowIndex}`
-          elCell.dataset["rowEnd"] = `${rowIndex}`
-          elCell.append(
-            `${column.origin.dataField && row.origin[column.origin.dataField]}`
-          )
-          this.#elBody.append(elCell)
+          continue
         }
-        columnIndex++
+        removeCells.push(elCell)
       }
-      rowIndex++
+      for (const elCell of removeCells) {
+        elCell.remove()
+      }
+      let rowIndex = renderingBounds.rowBegin
+      for (const row of rows) {
+        let columnIndex = renderingBounds.columnBegin
+        for (const column of columns) {
+          if (
+            !renderedRows.has(rowIndex) ||
+            !renderedColumns.has(columnIndex)
+          ) {
+            const elCell = elCellBase.cloneNode() as HTMLDivElement
+            if (columnIndex === latestColumnIndex) {
+              elCell.classList.add(styles.gridCellLastColumn)
+            }
+            if (rowIndex === latestRowIndex) {
+              elCell.classList.add(styles.gridCellLastRow)
+            }
+            elCell.style.left = `${
+              column.left - this.#scrollBarHorizontal.value
+            }px`
+            elCell.style.top = `${row.top - this.#scrollBarVertical.value}px`
+            elCell.style.width = `${column.width}px`
+            elCell.dataset["columnBegin"] = `${columnIndex}`
+            elCell.dataset["columnEnd"] = `${columnIndex}`
+            elCell.dataset["rowBegin"] = `${rowIndex}`
+            elCell.dataset["rowEnd"] = `${rowIndex}`
+            elCell.append(
+              `${
+                column.origin.dataField && row.origin[column.origin.dataField]
+              }`
+            )
+            this.#elBody.append(elCell)
+          }
+          columnIndex++
+        }
+        rowIndex++
+      }
+    }
+    if (columnsFrozen > 0) {
+      const renderingBounds = {
+        rowBegin: renderingBoundsRowBegin,
+        rowEnd: renderingBoundsRowEnd,
+        columnBegin: 0,
+        columnEnd: columnsFrozen - 1,
+      }
+      const columns = this.#columns.slice(
+        renderingBounds.columnBegin,
+        renderingBounds.columnEnd + 1
+      )
+      const rows = this.#rows.slice(
+        renderingBounds.rowBegin,
+        renderingBounds.rowEnd + 1
+      )
+      const latestRowIndex = this.#rows.length - 1
+      const renderedColumns = new Set<number>()
+      const renderedRows = new Set<number>()
+      const removeCells: HTMLElement[] = []
+      for (const child of this.#elBodyFrozenColumns.children) {
+        const elCell = child as HTMLElement
+        const columnBegin = parseInt(elCell.dataset["columnBegin"] ?? "-1", 10)
+        const columnEnd = parseInt(elCell.dataset["columnEnd"] ?? "-1", 10)
+        const column = this.#columns[columnBegin]
+        const rowBegin = parseInt(elCell.dataset["rowBegin"] ?? "-1", 10)
+        const rowEnd = parseInt(elCell.dataset["rowEnd"] ?? "-1", 10)
+        const row = this.#rows[rowBegin]
+        const intersectsWith = !(
+          renderingBounds.rowBegin > rowEnd ||
+          renderingBounds.rowEnd < rowBegin ||
+          renderingBounds.columnBegin > columnEnd ||
+          renderingBounds.columnEnd < columnBegin
+        )
+        if (intersectsWith && column && row) {
+          for (let i = columnBegin; i <= columnEnd; i++) {
+            renderedColumns.add(i)
+          }
+          for (let i = rowBegin; i <= rowEnd; i++) {
+            renderedRows.add(rowBegin)
+          }
+          elCell.style.left = `${column.left}px`
+          elCell.style.top = `${row.top - this.#scrollBarVertical.value}px`
+          elCell.style.width = `${column.width}px`
+          continue
+        }
+        removeCells.push(elCell)
+      }
+      for (const elCell of removeCells) {
+        elCell.remove()
+      }
+      let rowIndex = renderingBounds.rowBegin
+      for (const row of rows) {
+        let columnIndex = renderingBounds.columnBegin
+        for (const column of columns) {
+          if (
+            !renderedRows.has(rowIndex) ||
+            !renderedColumns.has(columnIndex)
+          ) {
+            const elCell = elCellBase.cloneNode() as HTMLDivElement
+            if (rowIndex === latestRowIndex) {
+              elCell.classList.add(styles.gridCellLastRow)
+            }
+            elCell.style.left = `${column.left}px`
+            elCell.style.top = `${row.top - this.#scrollBarVertical.value}px`
+            elCell.style.width = `${column.width}px`
+            elCell.dataset["columnBegin"] = `${columnIndex}`
+            elCell.dataset["columnEnd"] = `${columnIndex}`
+            elCell.dataset["rowBegin"] = `${rowIndex}`
+            elCell.dataset["rowEnd"] = `${rowIndex}`
+            elCell.append(
+              `${
+                column.origin.dataField && row.origin[column.origin.dataField]
+              }`
+            )
+            this.#elBodyFrozenColumns.append(elCell)
+          }
+          columnIndex++
+        }
+        rowIndex++
+      }
+    }
+
+    if (rowsFrozen > 0) {
+      const renderingBounds = {
+        rowBegin: 0,
+        rowEnd: rowsFrozen - 1,
+        columnBegin: renderingBoundsColumnBegin,
+        columnEnd: renderingBoundsColumnEnd,
+      }
+      const columns = this.#columns.slice(
+        renderingBounds.columnBegin,
+        renderingBounds.columnEnd + 1
+      )
+      const rows = this.#rows.slice(
+        renderingBounds.rowBegin,
+        renderingBounds.rowEnd + 1
+      )
+      const latestColumnIndex = this.#columns.length - 1
+      const renderedColumns = new Set<number>()
+      const renderedRows = new Set<number>()
+      const removeCells: HTMLElement[] = []
+      for (const child of this.#elBodyFrozenRows.children) {
+        const elCell = child as HTMLElement
+        const columnBegin = parseInt(elCell.dataset["columnBegin"] ?? "-1", 10)
+        const columnEnd = parseInt(elCell.dataset["columnEnd"] ?? "-1", 10)
+        const column = this.#columns[columnBegin]
+        const rowBegin = parseInt(elCell.dataset["rowBegin"] ?? "-1", 10)
+        const rowEnd = parseInt(elCell.dataset["rowEnd"] ?? "-1", 10)
+        const row = this.#rows[rowBegin]
+        const intersectsWith = !(
+          renderingBounds.rowBegin > rowEnd ||
+          renderingBounds.rowEnd < rowBegin ||
+          renderingBounds.columnBegin > columnEnd ||
+          renderingBounds.columnEnd < columnBegin
+        )
+        if (intersectsWith && column && row) {
+          for (let i = columnBegin; i <= columnEnd; i++) {
+            renderedColumns.add(i)
+          }
+          for (let i = rowBegin; i <= rowEnd; i++) {
+            renderedRows.add(rowBegin)
+          }
+          elCell.style.left = `${
+            column.left - this.#scrollBarHorizontal.value
+          }px`
+          elCell.style.top = `${row.top}px`
+          elCell.style.width = `${column.width}px`
+          continue
+        }
+        removeCells.push(elCell)
+      }
+      for (const elCell of removeCells) {
+        elCell.remove()
+      }
+      let rowIndex = renderingBounds.rowBegin
+      for (const row of rows) {
+        let columnIndex = renderingBounds.columnBegin
+        for (const column of columns) {
+          if (
+            !renderedRows.has(rowIndex) ||
+            !renderedColumns.has(columnIndex)
+          ) {
+            const elCell = elCellBase.cloneNode() as HTMLDivElement
+            if (columnIndex === latestColumnIndex) {
+              elCell.classList.add(styles.gridCellLastColumn)
+            }
+            elCell.style.left = `${
+              column.left - this.#scrollBarHorizontal.value
+            }px`
+            elCell.style.top = `${row.top}px`
+            elCell.style.width = `${column.width}px`
+            elCell.dataset["columnBegin"] = `${columnIndex}`
+            elCell.dataset["columnEnd"] = `${columnIndex}`
+            elCell.dataset["rowBegin"] = `${rowIndex}`
+            elCell.dataset["rowEnd"] = `${rowIndex}`
+            elCell.append(
+              `${
+                column.origin.dataField && row.origin[column.origin.dataField]
+              }`
+            )
+            this.#elBodyFrozenRows.append(elCell)
+          }
+          columnIndex++
+        }
+        rowIndex++
+      }
+    }
+
+    if (columnsFrozen > 0 && rowsFrozen > 0) {
+      const renderingBounds = {
+        rowBegin: 0,
+        rowEnd: rowsFrozen - 1,
+        columnBegin: 0,
+        columnEnd: columnsFrozen - 1,
+      }
+      const columns = this.#columns.slice(
+        renderingBounds.columnBegin,
+        renderingBounds.columnEnd + 1
+      )
+      const rows = this.#rows.slice(
+        renderingBounds.rowBegin,
+        renderingBounds.rowEnd + 1
+      )
+      const renderedColumns = new Set<number>()
+      const renderedRows = new Set<number>()
+      const removeCells: HTMLElement[] = []
+      for (const child of this.#elBodyFrozenColumnsAndRows.children) {
+        const elCell = child as HTMLElement
+        const columnBegin = parseInt(elCell.dataset["columnBegin"] ?? "-1", 10)
+        const columnEnd = parseInt(elCell.dataset["columnEnd"] ?? "-1", 10)
+        const column = this.#columns[columnBegin]
+        const rowBegin = parseInt(elCell.dataset["rowBegin"] ?? "-1", 10)
+        const rowEnd = parseInt(elCell.dataset["rowEnd"] ?? "-1", 10)
+        const row = this.#rows[rowBegin]
+        const intersectsWith = !(
+          renderingBounds.rowBegin > rowEnd ||
+          renderingBounds.rowEnd < rowBegin ||
+          renderingBounds.columnBegin > columnEnd ||
+          renderingBounds.columnEnd < columnBegin
+        )
+        if (intersectsWith && column && row) {
+          for (let i = columnBegin; i <= columnEnd; i++) {
+            renderedColumns.add(i)
+          }
+          for (let i = rowBegin; i <= rowEnd; i++) {
+            renderedRows.add(rowBegin)
+          }
+          elCell.style.left = `${column.left}px`
+          elCell.style.top = `${row.top}px`
+          elCell.style.width = `${column.width}px`
+          continue
+        }
+        removeCells.push(elCell)
+      }
+      for (const elCell of removeCells) {
+        elCell.remove()
+      }
+      let rowIndex = renderingBounds.rowBegin
+      for (const row of rows) {
+        let columnIndex = renderingBounds.columnBegin
+        for (const column of columns) {
+          if (
+            !renderedRows.has(rowIndex) ||
+            !renderedColumns.has(columnIndex)
+          ) {
+            const elCell = elCellBase.cloneNode() as HTMLDivElement
+            elCell.style.left = `${column.left}px`
+            elCell.style.top = `${row.top}px`
+            elCell.style.width = `${column.width}px`
+            elCell.dataset["columnBegin"] = `${columnIndex}`
+            elCell.dataset["columnEnd"] = `${columnIndex}`
+            elCell.dataset["rowBegin"] = `${rowIndex}`
+            elCell.dataset["rowEnd"] = `${rowIndex}`
+            elCell.append(
+              `${
+                column.origin.dataField && row.origin[column.origin.dataField]
+              }`
+            )
+            this.#elBodyFrozenColumnsAndRows.append(elCell)
+          }
+          columnIndex++
+        }
+        rowIndex++
+      }
     }
   }
 
